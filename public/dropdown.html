@@ -7,9 +7,9 @@
     <title>Document</title>
     <script type="text/javascript">
         
-        function selectedPlace (city){
+        function selectedPlace (selectedCity){
 
-            var selectedValue = city.value;
+            var selectedValue = selectedCity.value;
 
             if  (selectedValue === "Mumbai"){
                 alert ("Mumbai is selected");
@@ -29,9 +29,9 @@
         <label>Names</label>
     </div>    
         <select onchange="selectedPlace(this)">
-            <option selected >Select City</option>
-            <option >Mumbai</option>
-            <option >Pune</option>
+            <option selected>Select City</option>
+            <option>Mumbai</option>
+            <option>Pune</option>
             <option>Hyd</option>
         </select>
    
