@@ -5,17 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script>
-        function selectedClick (city){
+    <script type="text/javascript">
+        
+        function selectedPlace (city){
+
             var selectedValue = city.value;
-            if  (selectedValue === "mumbai"){
-                alert ("mumbai is selected");
+
+            if  (selectedValue === "Mumbai"){
+                alert ("Mumbai is selected");
             }
-             else if  (selectedValue === "pune"){
-                alert ("pune is selected");
+             else if  (selectedValue === "Pune"){
+                alert ("Pune is selected");
             }
-            else if (selectedValue === "hyd"){
-                alert ("hyd is selected");
+            else if (selectedValue === "Hyd"){
+                alert ("Hyd is selected");
             }
         }
     </script>
@@ -25,11 +28,11 @@
     <div>
         <label>Names</label>
     </div>    
-        <select onchange="selectedClick(this)">
-            
-            <option>mumbai</option>
-            <option selected>pune</option>
-            <option>hyd</option>
+        <select onchange="selectedPlace(this)">
+            <option selected >Select City</option>
+            <option >Mumbai</option>
+            <option >Pune</option>
+            <option>Hyd</option>
         </select>
    
 </body>
