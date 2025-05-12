@@ -5,13 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function selectedClick (city){
+            var selectedValue = city.value;
+            if  (selectedValue === "mumbai"){
+                alert ("mumbai is selected");
+            }
+             else if  (selectedValue === "pune"){
+                alert ("pune is selected");
+            }
+            else if (selectedValue === "hyd"){
+                alert ("hyd is selected");
+            }
+        }
+    </script>
 </head>
 
 <body>
     <div>
         <label>Names</label>
     </div>    
-        <select>
+        <select onchange="selectedClick(this)">
             
             <option>mumbai</option>
             <option selected>pune</option>
