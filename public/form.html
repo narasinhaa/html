@@ -3,21 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Validation Form</title>
+ 
+    <script type="text/javascript">
+        function verifyName() {
+            var username = document.getElementById("txtusername").value;
+            var nameMsg = document.getElementById("nameMsg");
+            if (username.length >= 5) {
+                nameMsg.innerHTML = "Username accepted" .fontcolor('green');
+
+            } else {
+                nameMsg.innerHTML = "Username must be at least 5 characters".fontcolor('red') ;
+        
+            }
+        }
+
+        function verifyPassword() {
+            var password = document.getElementById("txtpassword").value;
+            var passMsg = document.getElementById("passMsg");
+
+            const strongPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
+            if (strongPattern.test(password)) {
+                passMsg.innerHTML = "Strong password" .fontcolor('green');
+            
+            } else if (password.length < 4) {
+                passMsg.innerHTML = "Poor password" .fontcolor('orange');
+               
+            } else {
+                passMsg.innerHTML = "Weak password (use A-Z, a-z, number, special char)" .fontcolor('red');
+               
+            }
+        }
+
+        function verifyEmail() {
+            var email = document.getElementById("txtemail").value;
+            var emailMsg = document.getElementById("emailMsg");
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+
+            if (emailPattern.test(email)) {
+                emailMsg.innerHTML = "Valid email" .fontcolor('green');
+              
+            } else {
+                emailMsg.innerHTML = "Invalid email format" .fontcolor('red');
+          
+            }
+        }
+
+        function verifyMobile() {
+            var mobile = document.getElementById("txtmobile").value;
+            var mobileMsg = document.getElementById("mobileMsg");
+            const mobilePattern = /^\+91\d{10}$/;
+
+            if (mobilePattern.test(mobile)) {
+                mobileMsg.innerHTML = "Valid mobile number" .fontcolor('green');
+                
+            } else {
+                mobileMsg.innerHTML = "Mobile number must be started with +91 & 10 digits" .fontcolor('red');
+              
+            }
+        }
+
+        function validateForm() {
+            var isNameValid = verifyName();
+            var isPasswordValid = verifyPassword();
+            var isEmailValid = verifyEmail();
+            var isMobileValid = verifyMobile();
+
+            if (isNameValid && isPasswordValid && isEmailValid && isMobileValid) {
+                alert("Form submitted successfully!");
+            } else {
+                alert("Please correct the form before submitting.");
+            }
+        }
+    </script>
 </head>
 <body>
+    <h2>User Registration Form</h2>
     <dl>
         <dt>User Name</dt>
-        <dd><input type="text" placeholder="username" id="txtusername" ></dd>
+        <dd><input type="text" id="txtusername" placeholder="username" onkeyup="verifyName()" required></dd>
+        <dd id="nameMsg"></dd>
+
         <dt>Password</dt>
-        <dd><input type="password" id="txtpassword"  placeholder="password"></dd>
+        <dd><input type="password" id="txtpassword" placeholder="8+ chars with A-Z, a-z, 0-9, special" onkeyup="verifyPassword()" required></dd>
+        <dd id="passMsg"></dd>
+
         <dt>Email</dt>
-        <dd><input type="text" placeholder="email" id="txtemail" ></dd>
+        <dd><input type="text" id="txtemail" placeholder="example@mail.com" onkeyup="verifyEmail()" required></dd>
+        <dd id="emailMsg"></dd>
+
         <dt>Mobile</dt>
-        <dd><input type="text" placeholder="mobile" id="txtmobile" ></dd>
+        <dd><input type="text" id="txtmobile" placeholder="10-digit number" onkeyup="verifyMobile()" required></dd>
+        <dd id="mobileMsg"></dd>
+
         <dt>Submit</dt>
-        <dd><input type="button"  placeholder="Submit" id="txtsubmit" > </dd>
-        
+        <dd><input type="button" id="txtsubmit" value="Submit" onclick="validateForm()"></dd>
     </dl>
 </body>
 </html>
