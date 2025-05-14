@@ -10,23 +10,24 @@
         function validateForm() {
             var username = document.getElementById("txtusername").value;
             var nameMsg = document.getElementById("nameMsg");
-            if (username.length >= 5) {
-                nameMsg.innerHTML = "Username accepted".fontcolor('green');
-
-            } else {
-                nameMsg.innerHTML = "Username must be at least 5 characters".fontcolor('red');
-
-            }
-        
-
-        
             var password = document.getElementById("txtpassword").value;
             var passMsg = document.getElementById("passMsg");
-
             const strongPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+            var email = document.getElementById("txtemail").value;
+            var emailMsg = document.getElementById("emailMsg");
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+            var mobile = document.getElementById("txtmobile").value;
+            var mobileMsg = document.getElementById("mobileMsg");
+            const mobilePattern = /^\+91[0-9]{10}$/;
 
-            if (strongPattern.test(password)) {
-                passMsg.innerHTML = "Strong password".fontcolor('green');
+            username.length >= 5? nameMsg.innerHTML = "Username accepted".fontcolor('green'):nameMsg.innerHTML = "Username must be at least 5 characters".fontcolor('red');
+
+            if (password ==="") {
+                passMsg.innerHTML = "Type password";
+                
+            }
+              else if (strongPattern.test(password)) {
+                    passMsg.innerHTML = "Strong password".fontcolor('green');
 
             } else if (password.length < 4) {
                 passMsg.innerHTML = "Poor password".fontcolor('orange');
@@ -35,47 +36,13 @@
                 passMsg.innerHTML = "Weak password (use A-Z, a-z, number, special char)".fontcolor('red');
 
             }
-        
-
-        
-            var email = document.getElementById("txtemail").value;
-            var emailMsg = document.getElementById("emailMsg");
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
-
-            if (emailPattern.test(email)) {
-                emailMsg.innerHTML = "Valid email".fontcolor('green');
-
-            } else {
-                emailMsg.innerHTML = "Invalid email format".fontcolor('red');
-
-            }
-        
-
-        
-            var mobile = document.getElementById("txtmobile").value;
-            var mobileMsg = document.getElementById("mobileMsg");
-            const mobilePattern = /^\+91[0-9]{10}$/;
-
-            if (mobilePattern.test(mobile)) {
-                mobileMsg.innerHTML = "Valid mobile number".fontcolor('green');
-
-            } else {
+       
+            emailPattern.test(email)? emailMsg.innerHTML = "Valid email".fontcolor('green'):
+                emailMsg.innerHTML = "Invalid email format".fontcolor('red')
+             mobilePattern.test(mobile)?
+                mobileMsg.innerHTML = "Valid mobile number".fontcolor('green'):
                 mobileMsg.innerHTML = "Mobile number must be started with +91 & 10 digits".fontcolor('red');
 
-            }
-        
-
-        
-            var isNameValid = verifyName();
-            var isPasswordValid = verifyPassword();
-            var isEmailValid = verifyEmail();
-            var isMobileValid = verifyMobile();
-
-            if (isNameValid && isPasswordValid && isEmailValid && isMobileValid) {
-                alert("Form submitted successfully!");
-            } else {
-                alert("Please correct the form before submitting.");
-            }
         }
     </script>
 </head>
@@ -84,26 +51,26 @@
     <h2>User Registration Form</h2>
     <dl>
         <dt>User Name</dt>
-        <dd><input type="text" id="txtusername" placeholder="username"  required></dd>
+        <dd><input type="text" id="txtusername" placeholder=" Please Type Username"  required></dd>
         <dd id="nameMsg"></dd>
         <dd>Username must be at least 5 characters</dd>
 
         <dt>Password</dt>
-        <dd><input type="password" id="txtpassword" placeholder="password"  required></dd>
+        <dd><input type="password" id="txtpassword" placeholder=" Please Type Password"  required></dd>
         <dd id="passMsg"></dd>
         <dd> for password (use A-Z, a-z, number, special char)</dd>
 
         <dt>Email</dt>
-        <dd><input type="text" id="txtemail" placeholder="email id"  required></dd>
+        <dd><input type="text" id="txtemail" placeholder=" Please Type Email id"  required></dd>
         <dd id="emailMsg"></dd>
         <dd>for ex. emaile@.com</dd>
 
         <dt>Mobile</dt>
-        <dd><input type="text" id="txtmobile" placeholder=" mobile number"  required></dd>
+        <dd><input type="text" id="txtmobile" placeholder="Please Type Mobile Number"  required></dd>
         <dd id="mobileMsg"></dd>
         <dd> mobile number starte with +91 and must be 10 number</dd>
 
-        <dt>Submit</dt>
+        
         <dd><input type="button" id="txtsubmit" value="Submit" onclick="validateForm()"></dd>
     </dl>
 </body>

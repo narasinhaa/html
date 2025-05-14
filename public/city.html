@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Load Cities from JSON</title>
+</head>
+<body>
+  <h2>Select Your City</h2>
+  <select id="citySelect">
+    <option value="">-- Select City --</option>
+  </select>
+
+  <script>
+    // Function to load cities from JSON file
+    async function loadCities() {
+      try {
+        const response = await fetch('city.json'); // Load JSON file
+        const cities = await response.json(); // Parse JSON
+
+        const select = document.getElementById("citySelect");
+
+        cities.forEach(city => {
+          const option = document.createElement("option");
+          option.value = city.id;
+          option.text = city.name;
+          select.appendChild(option);
+        });
+      } catch (error) {
+        console.error("Failed to load cities:", error);
+      }
+    }
+
+    // Run the function on page load
+    window.onload = loadCities;
+  </script>
+</body>
+</html>
