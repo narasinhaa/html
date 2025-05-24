@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Set the value of an input field.
+    </title>
+</head>
+
+<body style="text-align:center;" id="body">
+    <h1 style="color:green;">
+        set the value of input field
+    </h1>
+    <input type="text" id="name"  value="" />
+    <span id="show" style="color:green;
+    font-size: 20px;
+    font-weight: bold;"></span>
+    <br>
+    <br>
+    <button onclick="setField()">
+        click to set
+    </button>
+   
+    <script>
+        function setField() {
+        const name = document.getElementById("name").value;
+        alert("size of name"+ name+"addition" );
+        if (name.length>=10){
+            alert("check the value")
+            document.getElementById("show").innerHTML="value accepted";
+   
+        }else if (name.length<=2){
+            alert("value is less than 4 digit")
+        }else {
+            alert("none of this")
+        }
+     
+       
+    }
+    </script>
+</body>
+
+</html>

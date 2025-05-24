@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mathamatical Calculations</title>
+    <script>
+      function calculation(operation) {
+        let number1 = parseFloat(document.getElementById("number1").value);
+        let number2 = parseFloat(document.getElementById("number2").value);
+        let result;
+
+        if (operation === "multiplication") {
+          result = number1 * number2;
+        } else if (operation === "division") {
+          if (number2 === 0) {
+            result = "Cannot divide by zero";
+          } else {
+            result = number1 / number2;
+          }
+        } else if (operation === "addition") {
+          result = number1 + number2;
+        } else if (operation === "subtraction") {
+          result = number1 - number2;
+        }
+        document.getElementById("total").value = result;
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <dl>
+        <dt>1st Number</dt>
+        <dd><input type="number" placeholder="Enter Number" id="number1" /></dd>
+
+        <dt>2nd Number</dt>
+        <dd><input type="number" placeholder="Enter Number" id="number2" /></dd>
+
+        <dt>Total</dt>
+        <dd>
+          <input type="number" placeholder="result" id="total" readonly />
+        </dd>
+      </dl>
+    </div>
+    <div>
+      <dl style="display: flex">
+        <dd>
+          <input
+            type="button"
+            onclick="calculation('multiplication')"
+            name="multipication"
+            value="multipication"
+          />
+        </dd>
+
+        <dd>
+          <input
+            type="button"
+            onclick="calculation('division')"
+            name="division"
+            value="division"
+          />
+        </dd>
+
+        <dd>
+          <input
+            type="button"
+            onclick="calculation('addition')"
+            name="addition"
+            value="addition"
+          />
+        </dd>
+
+        <dd>
+          <input
+            type="button"
+            onclick="calculation('subtraction')"
+            name="substration"
+            value="substration"
+          />
+        </dd>
+      </dl>
+    </div>
+  </body>
+</html>

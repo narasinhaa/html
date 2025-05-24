@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forms Page</title>
+</head>
+<style>
+    input{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        
+    }   
+    .buttons{
+        display: flex;
+        justify-content: space-between;
+        width: 150px;
+    }
+</style>
+<body>
+
+  <div>
+    <h2>Feedback Form</h2>
+     <form>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" autocomplete="name" placeholder="Full Name">
+
+        <label for="age">Age</label>
+        <input type="number" id="age" placeholder="Age">
+
+        <label for="mobile">Mobile</label>
+        <input type="number" id="mobile"  placeholder="Mobile">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" autocomplete="email" placeholder="Email">
+
+        <label for="feedback">Feedback</label>
+        <input type="text" id="feedback"  placeholder="Feedback">
+
+        <div class="buttons">
+            <input type="submit" value="submit">
+            <input type="reset" value="reset">
+        </div>
+     </form>
+
+</body>
+</html>

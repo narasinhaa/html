@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Array Check</title>
+  <script>
+    function checkFruit() {
+      const fruits = ["mango", "banana", "apple", "pineapple", "pomegranate", "orange"];
+      const userInput = document.getElementById("fruitName").value;
+
+      if (fruits.includes(userInput)) {
+        alert("It is present in array");
+      } else {
+        alert("It is NOT present in array");
+      }
+    }
+  </script>
+</head>
+<body>
+  <h3>Check Fruit List</h3>
+  <input type="text" id="fruitName" placeholder="Enter fruit name" />
+  <button onclick="checkFruit()">Check</button>
+</body>
+</html>

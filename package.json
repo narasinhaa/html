@@ -8,5 +8,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "practice",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narasinhaa/html.git"
+  },
+  "bugs": {
+    "url": "https://github.com/narasinhaa/html/issues"
+  },
+  "homepage": "https://github.com/narasinhaa/html#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.6",
+    "bootstrap-icons": "^1.13.1"
+  }
 }
